@@ -16,7 +16,7 @@ public class CarController {
     private List<Car> cars;
     private int count;
 
-    public CarController(OutputView outputView) {
+    public CarController() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
     }
