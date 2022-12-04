@@ -10,13 +10,27 @@ public class InputView {
     private static final String MESSAGE_COUNT = "시도할 회수는 몇회인가요?";
 
 
+    Validator validator = new Validator();
+
     public List<String> inputNames() {
         System.out.println(MESSAGE_NAME);
-        return Arrays.asList(readLine().split(","));
+        List<String> names = Arrays.asList(readLine().split(","));
+        try {
+            validator.validateName(names);
+        } catch (IllegalArgumentException e) {
+            inputNames();
+        }
+        return names;
     }
 
     public int inputCount() {
         System.out.println(MESSAGE_COUNT);
-        return Integer.parseInt(readLine());
+        String input = readLine();
+        try {
+            validator.validateInt(input);
+        } catch (IllegalArgumentException e) {
+            inputCount();
+        }
+        return Integer.parseInt(input);
     }
 }

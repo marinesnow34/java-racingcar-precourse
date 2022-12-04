@@ -57,7 +57,7 @@ public class CarController {
     private List<String> findWinners() {
         final int max = maxPosition();
         return cars.stream()
-                .filter(car -> car.getPosition() >= max)
+                .filter(car -> car.getPosition() == max)
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
