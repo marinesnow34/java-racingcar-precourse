@@ -28,6 +28,7 @@ public class CarController {
             moveCars();
             printMap();
         }
+        printWinner();
     }
 
     private void inputUser() {
@@ -45,5 +46,27 @@ public class CarController {
 
     private void printMap() {
         cars.forEach(car -> outputView.printPosition(car.getName(), car.getPosition()));
+    }
+
+    private void printWinner() {
+        outputView.printWinners(findWinners());
+    }
+
+    private List<String> findWinners() {
+        final int max = maxPosition();
+        return cars.stream()
+                .filter(car -> car.getPosition() >= max)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private int maxPosition() {
+        int max = 0;
+        for (Car car : cars) {
+            if (car.getPosition() > max) {
+                max = car.getPosition();
+            }
+        }
+        return max;
     }
 }
