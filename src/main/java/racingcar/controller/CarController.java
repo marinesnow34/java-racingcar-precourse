@@ -26,6 +26,7 @@ public class CarController {
         inputCount();
         for (int i = 0; i < count; i++) {
             moveCars();
+            printMap();
         }
     }
 
@@ -40,5 +41,9 @@ public class CarController {
 
     private void moveCars() {
         cars.forEach(car -> car.go(pickNumberInRange(MIN_RANDOM, MAX_RANDOM)));
+    }
+
+    private void printMap() {
+        cars.forEach(car -> outputView.printPosition(car.getName(), car.getPosition()));
     }
 }
