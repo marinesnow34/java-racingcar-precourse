@@ -8,5 +8,9 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void go(int number) {
+        if (4 <= number) {
+            position += 1;
+        }
+    }
 }
