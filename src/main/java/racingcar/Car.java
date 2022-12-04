@@ -1,6 +1,7 @@
 package racingcar;
 
 public class Car {
+    private static final int MOVE_CONDITION = 4;
     private final String name;
     private int position = 0;
 
@@ -9,7 +10,7 @@ public class Car {
     }
 
     public void go(int number) {
-        if (4 <= number) {
+        if (MOVE_CONDITION <= number) {
             position += 1;
         }
     }

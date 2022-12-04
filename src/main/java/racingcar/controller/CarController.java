@@ -33,7 +33,9 @@ public class CarController {
 
     private void inputUser() {
         List<String> users = inputView.inputNames();
-        cars = users.stream().map(Car::new).collect(Collectors.toList());
+        cars = users.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     private void inputCount() {
