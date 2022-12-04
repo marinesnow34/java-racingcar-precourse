@@ -1,5 +1,13 @@
 package racingcar.view;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
 public class InputView {
-    public
+    public String inputName() {
+        return readLine();
+    }
+
+    public String inputCount() {
+        return readLine();
+    }
 }
